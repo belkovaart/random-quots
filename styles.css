@@ -10,11 +10,23 @@ body {
     text-align: center;
 }
 
-#quote {
+.author {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.quote {
     font-size: 50px;
 }
 
-button {
+.quote::before {
+    content: '«';
+}
+.quote::after {
+    content: '»';
+}
+
+.btn {
     padding: 15px 40px;
     background-color: #4b3de5;
     color: #ffffff;
@@ -25,6 +37,6 @@ button {
     font-size: 20px;
 }
 
-button:hover {
+.btn:hover {
     background-color: #8766ea;
 }
