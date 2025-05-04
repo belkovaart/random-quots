@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #0f0c18;
+    background-color: #0c112f;
     color: white;
 }
 
@@ -33,10 +33,45 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 10px;
-    margin-top: 40px;
     font-size: 20px;
 }
 
 .btn:hover {
-    background-color: #8766ea;
+    background-color: #5b4df3;
 }
+
+.icon-btn {
+    --accent: #da39e6;    
+    --stroke: #ffffff;   
+  
+    background: transparent;
+    border: none;
+    padding: .4rem;
+    cursor: pointer;
+  
+    color: var(--stroke);         
+  }
+  
+  .icon {
+    width: 35px;
+    height: 35px;
+    overflow: visible;
+    pointer-events: none;
+    transition: fill .25s ease;   
+  }
+  
+  .icon-btn:hover       .icon path { fill: var(--accent);
+  color: #da39e6 ;}
+  .icon-btn.active:hover .icon path { fill:#da39e6 ; }    
+  
+  .icon-btn.active .icon path { fill: #ffffff; }
+  
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
