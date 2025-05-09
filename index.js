@@ -1,45 +1,51 @@
 import quotes from './src/quote.js';
-import {
-  updateFavoriteButton,
-  showFavoriteCard,
-  hideFavoriteCard,
-} from './src/favoritesHandler.js';
+import { updateFavoriteButton, showFavoriteCard, hideFavoriteCard } from './src/favoritesHandler.js';
+import { generateRandomInt } from './src/utils.js';
 
-const quoteElement = document.getElementById('quote');
-const authorElement = document.getElementById('author');
 const generateBtn = document.getElementById('generate-btn');
 const favoriteBtn = document.getElementById('favorite-btn');
 const favoritesContainer = document.getElementById('favorites-container');
 
 let currentQuoteIndex = null;
 
-function generateRandomQuote() {
-  currentQuoteIndex = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[currentQuoteIndex];
-  const quote = randomQuote.quote;
-  const quoteAuthor = randomQuote.author;
-  quoteElement.textContent = quote;
-  authorElement.textContent = quoteAuthor;
+function displayQuote(quote) {
+  const { text, author, isFavorite } = quote;
+  const quoteElement = document.getElementById('quote');
+  const authorElement = document.getElementById('author');
+  quoteElement.textContent = text;
+  authorElement.textContent = author;
+  updateFavoriteButton(quote, favoriteBtn);
+
+}
+
+function chooseRandomQuote() {
+  const randomIndex = generateRandomInt(quotes.length);
+  currentQuoteIndex = randomIndex;
+  return quotes[currentQuoteIndex];
+}
+
+function generateQuoteHandler() {
+  const randomQuote = chooseRandomQuote();
+  displayQuote(randomQuote);
   favoriteBtn.style.display = 'inline-block';
-  updateFavoriteButton(currentQuoteIndex, randomQuote, favoriteBtn);
 }
 
 function addQuoteToFavorites() {
-  const currentQuote = quotes[currentQuoteIndex];
   if (currentQuoteIndex == null) return;
+  const currentQuote = quotes[currentQuoteIndex];
   currentQuote.isFavorite = !currentQuote.isFavorite;
-  updateFavoriteButton(currentQuoteIndex, currentQuote, favoriteBtn);
+  updateFavoriteButton(currentQuote, favoriteBtn);
   showFavoriteCard(
     currentQuote.isFavorite,
-    currentQuote.quote,
+    currentQuote.text,
     currentQuote.author,
     favoritesContainer
   );
   if (!currentQuote.isFavorite) {
-    hideFavoriteCard(favoritesContainer, currentQuote.quote);
+    hideFavoriteCard(favoritesContainer, currentQuote.text);
   }
 }
 
-generateBtn.addEventListener('click', generateRandomQuote);
+generateBtn.addEventListener('click', generateQuoteHandler);
 favoriteBtn.addEventListener('click', addQuoteToFavorites);
-generateRandomQuote();
+chooseRandomQuote();
