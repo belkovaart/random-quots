@@ -6,6 +6,7 @@ body {
 
 h1 {
     color: var(--primary);
+    margin-bottom: 40px;
 }
 
 :root{
@@ -16,8 +17,17 @@ h1 {
     --button-color: #ffffff;
 }
 
+@font-face {
+    font-family: MiConv__amerta;
+    src: url('fonts/MiConv__amerta.woff2') format('woff2'),
+         url('fonts/MiConv__amerta.woff') format('woff'),
+         url('fonts/MiConv__amerta.eot') format('eot');
+    font-weight: 100;
+    font-style: normal;
+}
+
 .container {
-    max-width: 800px;
+    max-width: 70%;
     margin: 80px auto 60px auto;
     text-align: center;
 }
@@ -27,11 +37,15 @@ h1 {
     font-weight: 100;
     color: var(--text-color);
     margin-top: 0;
+    margin-bottom: 30px;
 }
 
 .quote {
-    font-size: 50px;
-    margin-bottom: 30px;
+    font-family: MiConv__amerta;
+    font-size: 70px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-transform: uppercase;
 }
 
 .quote::before {
@@ -108,5 +122,18 @@ h1 {
     line-height: 1.5;
     padding: 15px 50px 10px 30px;
     border-radius: 10px;
+    position: relative;
+  }
+
+  .remove-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--primary);
+    font-size: 20px;
+    margin-top: 10px;
+    position: absolute;
+    top: 3px;
+    right: 5px;
   }
 

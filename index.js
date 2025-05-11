@@ -9,7 +9,7 @@ const favoritesContainer = document.getElementById('favorites-container');
 let currentQuoteIndex = null;
 
 function displayQuote(quote) {
-  const { text, author, isFavorite } = quote;
+  const { id, text, author, isFavorite } = quote;
   const quoteElement = document.getElementById('quote');
   const authorElement = document.getElementById('author');
   quoteElement.textContent = text;
@@ -35,17 +35,19 @@ function addQuoteToFavorites() {
   const currentQuote = quotes[currentQuoteIndex];
   currentQuote.isFavorite = !currentQuote.isFavorite;
   updateFavoriteButton(currentQuote, favoriteBtn);
-  showFavoriteCard(
-    currentQuote.isFavorite,
-    currentQuote.text,
-    currentQuote.author,
+
+  if (currentQuote.isFavorite) {
+    showFavoriteCard(
+    currentQuote,
     favoritesContainer
-  );
+  );}
   if (!currentQuote.isFavorite) {
-    hideFavoriteCard(favoritesContainer, currentQuote.text);
+    hideFavoriteCard(currentQuote.id);
   }
 }
 
 generateBtn.addEventListener('click', generateQuoteHandler);
 favoriteBtn.addEventListener('click', addQuoteToFavorites);
 generateQuoteHandler();
+
+export { favoriteBtn };
