@@ -48,4 +48,4 @@ function addQuoteToFavorites() {
 
 generateBtn.addEventListener('click', generateQuoteHandler);
 favoriteBtn.addEventListener('click', addQuoteToFavorites);
-chooseRandomQuote();
+generateQuoteHandler();
