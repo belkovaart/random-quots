@@ -22,8 +22,8 @@ function showFavoriteCard(quote, container) {
               stroke-linecap="round"/>
       </svg>
     </button>      
-      <p>${text}</p>
-      <p><strong>${author}</strong></p>`;
+      <p class="quote-in-card">«${text}»</p>
+      <p class="author-in-card">${author}</p>`;
   const removeBtn = favoriteCard.querySelector('.remove-btn');
   removeBtn.addEventListener('click', () => {
     quote.isFavorite = !quote.isFavorite;

@@ -10,30 +10,28 @@ h1 {
 }
 
 :root{
-    --primary: #554be6;
-    --accent: #da39e6;
+    --primary: #5d61e2;
+    --accent: #f09ce6;
     --background: #0c112f;
-    --text-color: #e4e6ef;
+    --text-color: #babfd6;
     --button-color: #ffffff;
 }
 
 @font-face {
-    font-family: MiConv__amerta;
-    src: url('fonts/MiConv__amerta.woff2') format('woff2'),
-         url('fonts/MiConv__amerta.woff') format('woff'),
-         url('fonts/MiConv__amerta.eot') format('eot');
-    font-weight: 100;
-    font-style: normal;
+    font-family: 'MiConv amerta';
+    src: url('../fonts/MiConv__amerta.woff2') format('woff2'),
+         url('../fonts/MiConv__amerta.woff') format('woff'),
+         url('../fonts/MiConv__amerta.eot') format('embedded-opentype');
 }
 
 .container {
-    max-width: 70%;
-    margin: 80px auto 60px auto;
+    max-width: 75%;
+    margin: 60px auto 60px auto;
     text-align: center;
 }
 
 .author {
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 100;
     color: var(--text-color);
     margin-top: 0;
@@ -41,7 +39,7 @@ h1 {
 }
 
 .quote {
-    font-family: MiConv__amerta;
+    font-family: 'MiConv amerta';
     font-size: 70px;
     margin-bottom: 20px;
     margin-top: 0;
@@ -73,8 +71,9 @@ h1 {
     background-color: #6478f8;
 }
 
-.icon-btn {
-    --accent: #da39e6;    
+.icon-btn,
+.share-btn {
+    /* --accent: var(--accent);     */
     --stroke: var(--text-color);   
   
     background: transparent;
@@ -94,18 +93,30 @@ h1 {
   }
   
   .icon-btn:hover       .icon path { fill: var(--accent);
-  color: #da39e6 ;}
-  .icon-btn.active:hover .icon path { fill:#da39e6 ; }    
+  color: var(--accent) ;}
+  .icon-btn.active:hover .icon path { fill:var(--accent) ; }    
   
   .icon-btn.active .icon path { fill: var(--text-color); }
+
+  .share-btn:hover       .icon path { fill: var(--accent);
+  color: var(--accent) ;}
+  .share-btn.active:hover .icon path { fill:var(--accent) ; }    
+  
+  .share-btn.active .icon path { fill: var(--text-color); }
   
 
 .actions {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
     margin-top: 40px;
+}
+
+.icon-btns {
+    display: flex;
+    gap: 10px;
 }
 
 .favorites-container {
@@ -119,8 +130,7 @@ h1 {
     flex: 0 1 25%;
     box-sizing: border-box;
     background: #121a46;
-    line-height: 1.5;
-    padding: 15px 50px 10px 30px;
+    padding: 40px 50px 40px 30px;
     border-radius: 10px;
     position: relative;
   }
@@ -137,3 +147,19 @@ h1 {
     right: 5px;
   }
 
+  .quote-in-card {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    text-transform: uppercase;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  .author-in-card {
+    font-size: 15px;
+    font-weight: 100;
+    color: var(--primary) ;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
